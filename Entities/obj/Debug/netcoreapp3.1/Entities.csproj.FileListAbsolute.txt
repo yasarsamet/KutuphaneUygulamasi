@@ -1,0 +1,17 @@
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\bin\Debug\netcoreapp3.1\Entities.deps.json
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\bin\Debug\netcoreapp3.1\Core.dll
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\bin\Debug\netcoreapp3.1\Core.pdb
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\obj\Debug\netcoreapp3.1\Entities.csprojAssemblyReference.cache
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfoInputs.cache
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfo.cs
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\obj\Debug\netcoreapp3.1\Entities.csproj.CoreCompileInputs.cache
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\obj\Debug\netcoreapp3.1\Entities.csproj.CopyComplete
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\obj\Debug\netcoreapp3.1\Entities.dll
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\obj\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\bin\Debug\netcoreapp3.1\WebApi.exe
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\bin\Debug\netcoreapp3.1\WebApi.dll
+C:\Users\samet\source\repos\KütüphaneUygulaması\Entities\bin\Debug\netcoreapp3.1\WebApi.pdb

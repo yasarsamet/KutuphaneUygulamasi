@@ -1,0 +1,110 @@
+﻿@model KütüphaneUygulaması.ViewModel.KitapAldıklarımViewModel
+@{ 
+   
+}
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="modal fade" style="width:80px; height:80px;" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Aldığım Kitaplar</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Kitap Adı</th>
+                            <th>Kitap Sayfası</th>
+                            <th>Kitap Türü</th>
+                            <th>Kitap Alım Tarihi</th>
+                            <th>Kitap Teslim Tarihi</th>
+                            <th>Düzenle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ödünc in Model.OdüncAlListesi)
+                        {                            
+                            foreach (var kitap in Model.Kitaplistesi)
+                            {
+                                if (ödünc.KitabId == kitap.Id && ödünc.OgrenciId == ViewBag.id )
+                                {
+                                    <tr>
+                                        <td>@kitap.KitapAdı</td>
+                                        <td>@kitap.KitapSayfası</td>
+                                        <td>@kitap.KitapTürü</td>
+                                        <td>@ödünc.OdüncTarihi</td>
+                                        <td>@ödünc.TeslimTarihi</td>
+                                        <td>
+                                            <a data-toggle="modal" data-target="#Assign" style="color:white;" onclick="deleteCompany(@ödünc.id)" class="btn btn-primary">
+                                                <span class="svg-icon svg-icon-md">                                                   
+                                                </span>Düzenle
+                                            </a>                                            
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var oduncıde = 0;
+    function deleteCompany(ide) {
+        oduncıde = ide
+        debugger;
+         $.get("@Url.Action("Düzenle", "KitapAl")",
+             { id: oduncıde},
+             function (data) {
+                 debugger;
+                 //$('#hidden').val(data.id);
+                });
+    }    
+     function onayla() {        
+        var newdate = $("#sae").val();
+        //var oduncTar = odunctarihi       
+        debugger;
+        $.get("@Url.Action("DüzenleOnayla", "KitapAl")",
+            { newdatet: newdate, oduncId: oduncıde},
+                function(data) {
+                    location.reload();
+                });
+     }   
+</script>
+<div id="Assign" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Düzenle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Yeni Teslim Tarihi</label>
+                    <div class="col-8">
+                        @{
+                            DateTime now = DateTime.Now;
+                            string formate = DateTime.Now.ToString("yyyy-MM-dd");
+                            string eklenmıs = DateTime.Now.AddDays(14).ToString("yyyy-MM-dd");                            
+                        }
+                        <input id="sae" class="form-control" type="date" name="newdate"  min="@formate" max="@eklenmıs">                        
+                    </div>
+                </div>               
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="onayla()">Onayla</button>
+            </div>
+        </div>
+    </div>
+</div>

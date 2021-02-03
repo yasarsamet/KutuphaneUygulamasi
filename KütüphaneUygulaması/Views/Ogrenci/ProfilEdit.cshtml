@@ -1,0 +1,77 @@
+﻿@model KütüphaneUygulaması.ViewModel.ProfilEditViewModel
+
+<div class="container">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                <p> 
+                    &nbsp;&nbsp;
+                </p>
+                <div class="col-lg-6">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Bilgilerimi Güncelle</h1>
+                        </div>
+
+                        @using (Html.BeginForm("ProfilEdit", "Ogrenci", FormMethod.Post))
+                        {
+
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label>İsim</label>
+                                    @Html.TextBoxFor(m => m.İsim, new { @class = "form-control rounded-left rounded-right", @maxlength = "15", @required = "required", @readonly = "readonly" })
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Soyisim</label>
+                                    @Html.TextBoxFor(m => m.Soyisim, new { @class = "form-control rounded-left rounded-right", @maxlength = "15", @required = "required", @readonly = "readonly" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label>Şifre</label>
+                                    @Html.PasswordFor(m => m.Sifre, new { @class = "form-control rounded-left rounded-right", @required = "required" })
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Email</label>
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control rounded-left rounded-right", @required = "required", @maxlength = "18", @readonly = "readonly" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label>Doğum Tarihi</label>
+                                    @Html.TextBoxFor(m => m.DogumTarihi, new { @class = "form-control rounded-left rounded-right", placeholder = "Doğum Tarihi", type = "date", @required = "required", @readonly = "readonly" })
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Okulu</label>
+                                    <input type="text" class="form-control" value="@Model.Okulu" readonly />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label>Sınıfı</label>
+                                    @Html.TextBoxFor(m => m.Sınıfı, new { @class = "form-control form-control-user", placeholder = "Sınıf",@required="required", type = "number", @min = "0", @max = "4" })
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Adres</label>
+                                    @Html.TextBoxFor(m => m.Adres, new { @class = "form-control form-control-user", @required = "required" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <label>Telefon</label>
+                                @Html.TextBoxFor(m => m.Telefon, new { @class = "form-control rounded-left rounded-right", @required = "required", @maxlength = "15", })
+                            </div>
+                            @Html.HiddenFor(m => m.Id)
+                            @Html.HiddenFor(m => m.Durumu)
+                            @Html.HiddenFor(m => m.Okulu)
+                            @Html.HiddenFor(m => m.OgrenciId)
+                            <br />
+                            <button type="submit" class="btn btn-block btn-dark rounded-left rounded-right">Güncelle</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

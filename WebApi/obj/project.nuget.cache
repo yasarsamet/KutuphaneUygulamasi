@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "y9fu2CwVvTczs0K48WanKoHF+BmMmHwFSslS9pnJGqLdhUINRO0P7jChW2U3OSEiUaLof1IYpAZmUftMvQC4hw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\samet\\source\\repos\\KütüphaneUygulaması\\WebApi\\WebApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\samet\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",
+    "C:\\Users\\samet\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.1.0\\autofac.extensions.dependencyinjection.7.1.0.nupkg.sha512",
+    "C:\\Users\\samet\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512",
+    "C:\\Users\\samet\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,181 @@
+﻿@model KütüphaneUygulaması.ViewModel.KitapListesiViewModel
+@{
+    List<int> OdüncKitapId = new List<int>();
+    foreach (var id in Model.OdüncAlListesi)
+    {
+        OdüncKitapId.Add(id.KitabId);
+    }
+    List<int> RezervasyonListesiId = new List<int>();
+    foreach (var rezervasyon in Model.RezervasyonListesi)
+    {
+        if (rezervasyon.IsDeleted==false)
+        {
+            RezervasyonListesiId.Add(rezervasyon.KitabId);
+        }
+    }
+}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Kitap Listesi</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Kitap Adı</th>
+                            <th>Kitap Sayfası</th>
+                            <th>Kitap Türü</th>
+                            <th>Kitap basım tarihi</th>
+                            <th>Kitap Yazarı</th>
+                            <th>Detay</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var kitap in Model.Kitaplistesi)
+                        {
+                            if (OdüncKitapId.Contains(kitap.Id) == false && RezervasyonListesiId.Contains(kitap.Id) == false)
+                            {
+                                <tr>
+                                    <td>@kitap.KitapAdı</td>
+                                    <td>@kitap.KitapSayfası</td>
+                                    <td>@kitap.KitapTürü</td>
+                                    @foreach (var kitapyazar in Model.KitapYazarListesi)
+                                    {
+                                        if (kitap.Id == kitapyazar.KitapId)
+                                        {
+                                            <td>@kitapyazar.KitapBasımTarihi</td>
+                                        }
+                                    }
+                                    @foreach (var yazar in Model.Yazarlistesi)
+                                    {
+                                        foreach (var kitapyazar in Model.KitapYazarListesi)
+                                        {
+                                            if (kitap.Id == kitapyazar.KitapId && yazar.id == kitapyazar.YazarId)
+                                            {
+                                                <td>@yazar.Adi <p>@yazar.Soyadi</p></td>
+                                            }
+                                        }
+                                    }
+                                    @foreach (var raf in Model.RafListesi)
+                                    {
+                                        if (raf.Id == kitap.RafId)
+                                        {
+                                            @*<td><a href="#" class="view" data-target="/KitapAl/Raf/@raf.Id">Rafını Göster</a></td>*@
+                                            <td>
+
+                                                <a data-toggle="modal" data-target="#Assign" style="color:white;" onclick="deleteCompany(@raf.Id,@kitap.Id)" class="btn btn-primary">
+                                                    <span class="svg-icon svg-icon-md">                                                        
+                                                    </span>Raf Bilgileri
+                                                </a>
+                                            </td>
+                                        }
+                                    }
+                                </tr>
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="Assign" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Raf Bilgileri</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Raf Baslık</label>
+                    <div class="col-8">
+                        <input id="RafBaslik" class="form-control" type="text" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Raf Numarası</label>
+                    <div class="col-8">
+                        <input id="RafNumarası" class="form-control" type="text" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Bulunduğu Salon</label>
+                    <div class="col-8">
+                        <input id="BulunduguSalon" class="form-control" type="text" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Bulunduğu Kat</label>
+                    <div class="col-8">
+                        <input id="BulunduguKat" class="form-control" type="text" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tamam</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="asy()">Ayırt Et</button>
+                @*<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="assignAdmin()">Toekennen</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+    var kitapid = 0;
+    var rafid = 0;
+
+    function asy(){
+        debugger;
+        $.get("@Url.Action("Rezervasyon", "KitapAl")",
+            {
+                kitapId:kitapid
+            },
+            function (data) {
+                //swal("Rezervasyon Tamam!", "1 Saat içerisinde Kitabı Almadığınız Taktirde Rezervasyon İptal Edilir!", "warning");              
+                swal("1 Saat içerisinde Kitabı Almadığınız Taktirde Rezervasyon İptal Edilir!", {
+                    buttons: {
+                        catch: {
+                            text: "Tamam!",
+                            value: "catch",
+                        },                        
+                    },
+                })
+                    .then((value) => {
+                        switch (value) {
+                            case "catch":
+                                location.reload();
+                                break;
+                            default:
+                                location.reload();
+                        }
+                    });
+            });
+    }
+    function deleteCompany(ide,ktpid) {
+        debugger;
+        rafid = ide,
+        kitapid = ktpid
+        debugger;
+         $.get("@Url.Action("Raf", "KitapAl")",
+            { id: rafid },
+             function (data) {
+                 debugger;
+                 $('#RafBaslik').val(data.rafBaslik);
+                 $('#RafNumarası').val(data.rafNo);
+                 $('#BulunduguSalon').val(data.bulunduguSalon);
+                 $('#BulunduguKat').val(data.bulunduguKat);
+                });
+    }
+    </script>
+}

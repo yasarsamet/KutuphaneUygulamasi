@@ -1,0 +1,66 @@
+﻿@model KütüphaneUygulaması.ViewModel.ÖdüncAlViewModel
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+    <div class="container">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Kitap Al</h1>
+                            </div>
+                            @using (Html.BeginForm("KitapAlma", "KitapAl", FormMethod.Post))
+                            {
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        @Html.ValidationMessageFor(m => m.KitabId, "", new { @style = "color:red" })
+                                        @Html.DropDownListFor(m => m.KitabId, Model.KitablarList, "Kitap İsimleri", new { @class = "form-control", @id = "kitaplist" })
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @Html.ValidationMessageFor(m    => m.TeslimTarihi, "", new { @style = "color:red" })
+                                        @Html.TextBoxFor(m => m.TeslimTarihi, new { @class = "form-control", placeholder = "Teslim Tarihi", type = "date", @id = "teslimtarihi" })
+                                    </div>
+                                    <div class="form-group row">                                        
+                                        <p id="yaz">This is a paragraph.</p>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-block btn-danger" id="kitapal" style="margin-top:10px; width:150px;">Kitabı Al</button>
+                                <hr>
+                            }
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('#kitaplist').change(function () {
+                var id = $('#kitaplist').val();
+                $.ajax({
+                    url: '/KitapAl/getisr',
+                    data: { p: id },
+                    type: "POST",
+                    dataType: "Json",
+                    success: function (data) {
+                        if (data != null)
+                        {
+                            debugger;                            
+                            for (var i = 0; i < data.length; i++) {
+                                debugger;                                
+                                document.getElementById("yaz").innerHTML = "TEST" + data[i].rafBaslik;
+                            }
+                        } else {
+                            alert("Değerler Gelmedi");
+                        }
+                    }
+                });
+
+            });
+        });
+    </script>

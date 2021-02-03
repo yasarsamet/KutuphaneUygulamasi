@@ -1,0 +1,116 @@
+﻿@model KütüphaneUygulaması.ViewModel.OgrenciEklemeViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Kayıt Ol</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+<body class="bg-gradient-primary">
+    <div class="container">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Hesap Oluştur!</h1>
+                            </div>
+                            @{ 
+                                List<SelectListItem> üniversiteler = new List<SelectListItem>
+                                {
+                                   new SelectListItem { Value="Gaziosmanpaşa Üniversitesi",Text="Gaziosmanpaşa Üniversitesi",},
+                                   new SelectListItem { Value = "İnönü Üniversitesi",Text = "İnönü Üniversitesi"},
+                                   new SelectListItem { Value = "Karabük Üniversitesi",Text= "Karabük Üniversitesi"},
+                                   new SelectListItem { Value = "Erciyes Üniversitesi",Text = "Erciyes Üniversitesi"},
+                                   new SelectListItem { Value = "Cumhuriyet Üniversitesi", Text = "Cumhuriyet Üniversitesi"}
+                                };                                
+                            }
+                            @using (Html.BeginForm("OgrenciEkleme", "Ogrenci", FormMethod.Post, new { @class = "form" }))
+                            {
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        @Html.TextBoxFor(m => m.İsim, new { @class = "form-control form-control-user", @id = "exampleFirstName", placeholder = "İsim" })
+                                        @Html.ValidationMessageFor(m => m.İsim, "", new { @style = "color:red" })
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @Html.TextBoxFor(m => m.Soyisim, new { @class = "form-control form-control-user", @id = "exampleLastName", placeholder = "Soyisim" })
+                                        @Html.ValidationMessageFor(m => m.Soyisim, "", new { @style = "color:red" })
+                                    </div>
+                                </div>
+                                <div class="form-group">                                        
+                                    @Html.TextBoxFor(m => m.Telefon, new { @class = "form-control form-control-user", placeholder = "Telefon Numarası", @id = "txtBxHomePhone" })
+                                    @Html.ValidationMessageFor(m => m.Telefon, " ", new { @style = "color:red" })
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">                                       
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+                                        @Html.ValidationMessageFor(m => m.Email, "", new { @style = "color:red" })
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @Html.PasswordFor(m => m.Sifre, new { @class = "form-control", placeholder = "Sifre" })
+                                        @Html.ValidationMessageFor(m => m.Sifre, "", new { @style = "color:red" })
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        @Html.TextBoxFor(m => m.DogumTarihi, new { @class = "form-control form-control-user", placeholder = "Doğum Tarihi", type = "date" })
+                                        @Html.ValidationMessageFor(m => m.DogumTarihi, "", new { @style = "color:red" })
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @Html.DropDownListFor(m => m.Okulu, üniversiteler, "Lütfen Seçiniz", new { @class = "dropdown form-control" })
+                                        @Html.ValidationMessageFor(m => m.Okulu, "", new { @style = "color:red" })
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        @Html.TextBoxFor(m => m.Sınıfı, new { @class = "form-control form-control-user", placeholder = "Sınıf", type = "number" , @min = "0", @max = "4" })
+                                        @Html.ValidationMessageFor(m => m.Sınıfı, "", new { @style = "color:red" })
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @Html.TextBoxFor(m => m.Adres, new { @class = "form-control form-control-user", placeholder = "Adres" })
+                                        @Html.ValidationMessageFor(m => m.Adres, "", new { @style = "color:red" })
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">Kayıt Ol</button>
+                                <hr>
+                            }
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="/Ogrenci/ForgotPassword">Şifremi Unuttum ?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="/Ogrenci/Index">Hesabın Var mı? Giriş Yap!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/js/sb-admin-2.min.js"></script>
+</body>
+</html>

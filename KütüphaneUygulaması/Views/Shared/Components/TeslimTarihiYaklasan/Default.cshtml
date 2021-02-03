@@ -1,0 +1,47 @@
+﻿@model KütüphaneUygulaması.ViewModel.TeslimTarihiAlertViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int sayac = 0;
+}
+<a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-envelope fa-fw"></i>
+    <!-- Counter - Messages -->
+    @foreach (var teslim in Model.TeslimTarihiYaklasan)
+    {
+        DateTime now = DateTime.Now;
+        DateTime teslimtarihi = Convert.ToDateTime(teslim.TeslimTarihi);
+
+        if (now.AddDays(5) > teslimtarihi)
+        {
+            sayac += 1;
+        }
+    }
+    <span class="badge badge-danger badge-counter">@sayac</span>
+</a>
+<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+    <h6 class="dropdown-header">
+        Teslim Tarihi Yaklaşan Kitaplar
+    </h6>
+    @foreach (var teslim in Model.TeslimTarihiYaklasan)
+    {
+        DateTime now = DateTime.Now;
+        DateTime teslimtarihi = Convert.ToDateTime(teslim.TeslimTarihi);
+
+        if (now.AddDays(5) > teslimtarihi)
+        {
+            <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                </div>
+                <div class="font-weight-bold">
+                    <div class="text-truncate" style="font-size:12px;">@teslim.KitapAdı Kitabın Teslim Tarihi Yaklaşıyor</div>
+                    <div class="small text-gray-500" style="font-size:11px;"><b>Teslim Tarihi: </b>@teslim.TeslimTarihi</div>
+                </div>
+            </a>
+        }
+    }
+    <a class="dropdown-item text-center small text-gray-500" href="#"><marquee>Teslim Tarihi Yaklasan Kitaplar</marquee></a>
+</div>

@@ -1,0 +1,56 @@
+﻿@model KütüphaneUygulaması.ViewModel.RezervasyonEttigimKitaplarViewModel
+@{
+    ViewData["Title"] = "RezervasyonEttigimKitaplar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Rezervasyon Yaptığım Kitap Listesi</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Kitap Adı</th>
+                            <th>Kitap Sayfası</th>
+                            <th>Kitap Basım Tarihi</th>
+                            <th>Kitap Yazarı</th>
+                            <th>Tarih</th>
+                            <th>Rezervasyonu İptal Et</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var kitap in Model.RezervasyonKitapListesi)
+                        {
+                            <tr>
+                                <td>@kitap.KitapAdı</td>
+                                <td>@kitap.KitapSayfası</td>
+                                <td>@kitap.KitapBasımTarihi</td>
+                                <td>@kitap.Adi</td>
+                                <td>@kitap.Tarih</td>
+                                <td>
+                                    <a data-toggle="modal" data-target="#Assign" style="color:white;" onclick="rezervasyonsil(@kitap.Id)" class="btn btn-primary">
+                                        <span class="svg-icon svg-icon-md">
+                                        </span>İptal Et
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function rezervasyonsil(id) {
+        debugger;
+        $.get("@Url.Action("RezervasyonSil", "KitapAl")",
+            { rezervasyonid:id },
+                function(data) {
+                    location.reload();
+                });
+        }
+</script>

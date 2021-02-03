@@ -9,7 +9,7 @@ namespace KütüphaneUygulaması.ViewModel
     {
         public int Id { get; set; }
         public int OgrenciId { get; set; }
-        public string İsim { get; set; }
+        public string Isim { get; set; }
         public string Soyisim { get; set; }
         public string Telefon { get; set; }
         public string Email { get; set; }

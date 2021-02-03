@@ -9,7 +9,7 @@ namespace Entities.Concrete
     {
         public int Id { get; set; }
         public int RafId { get; set; }
-        public int YayıneviId { get; set; }
+        public int YayineviId { get; set; }
         public int KitapId { get; set; }
         public string KitapAdı { get; set; }
         public string KitapSayfası { get; set; }

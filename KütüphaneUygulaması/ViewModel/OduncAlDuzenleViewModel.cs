@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace KütüphaneUygulaması.ViewModel
 {
-    public class ÖdüncAlDüzenleViewModel
+    public class OduncAlDuzenleViewModel
     {
         public int id { get; set; }
         public int OdüncAlId { get; set; }

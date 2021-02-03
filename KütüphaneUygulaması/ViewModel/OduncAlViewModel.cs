@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace KütüphaneUygulaması.ViewModel
 {
-    public class ÖdüncAlViewModel
+    public class OduncAlViewModel
     {
-
-        public ÖdüncAlViewModel()
+        public OduncAlViewModel()
         {
             KitablarList = new List<SelectListItem>();
         }
-
         public int id { get; set; }
         public int OdüncAlId { get; set; }
         public int OgrenciId { get; set; }       

@@ -13,7 +13,7 @@ namespace KütüphaneUygulaması.ViewModel
         public int OgrenciId { get; set; }  
 
         [Required(ErrorMessage = "İsminizi Girin")]
-        public string İsim { get; set; }
+        public string Isim { get; set; }
 
         [Required(ErrorMessage = "Soyisiminizi Girin")]
         public string Soyisim { get; set; }

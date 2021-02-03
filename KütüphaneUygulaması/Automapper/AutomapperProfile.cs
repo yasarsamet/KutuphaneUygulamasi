@@ -14,8 +14,8 @@ namespace KütüphaneUygulaması.Automapper
         {
             CreateMap<Ogrenci, OgrenciEklemeViewModel>().ReverseMap();
             CreateMap<ProfilEditViewModel, Ogrenci>().ReverseMap();
-            CreateMap<OduncAl, ÖdüncAlViewModel>().ReverseMap();
-            CreateMap<OduncAl, ÖdüncAlViewModel>().ReverseMap();
+            CreateMap<OduncAl, OduncAlViewModel>().ReverseMap();
+            CreateMap<OduncAl, OduncAlViewModel>().ReverseMap();
 
             CreateMap<TeslimTarihiAlertViewModel, TeslimTarih>().ReverseMap();
             CreateMap<TeslimTarih, TeslimTarihiAlertViewModel>().ReverseMap();

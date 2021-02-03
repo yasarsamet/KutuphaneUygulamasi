@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{A1F54402-7061-4A3D-8C85-558FC11B66C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{A1F54402-7061-4A3D-8C85-558FC11B66C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{1E855F55-D3BA-4E83-8298-32D38F418B94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{1E855F55-D3BA-4E83-8298-32D38F418B94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{B68B9CE4-A02A-471A-9C0A-96DD35EB6783}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{B68B9CE4-A02A-471A-9C0A-96DD35EB6783}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{F6D0F3D0-8BB9-4A25-A44F-7BE788C2F403}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{F6D0F3D0-8BB9-4A25-A44F-7BE788C2F403}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KütüphaneUygulaması", "KütüphaneUygulaması\KütüphaneUygulaması.csproj", "{38EA355B-A122-42C4-BF8F-FEAAA88547F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KutuphaneUygulamasi", "KütüphaneUygulaması\KutuphaneUygulamasi.csproj", "{38EA355B-A122-42C4-BF8F-FEAAA88547F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{7626E50A-8108-42A6-9B6B-D36BF0238650}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{7626E50A-8108-42A6-9B6B-D36BF0238650}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9112,9 +9112,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\samet\\source\\repos\\KütüphaneUygulaması\\KütüphaneUygulaması\\KütüphaneUygulaması.csproj",
-      "projectName": "KütüphaneUygulaması",
-      "projectPath": "C:\\Users\\samet\\source\\repos\\KütüphaneUygulaması\\KütüphaneUygulaması\\KütüphaneUygulaması.csproj",
+      "projectUniqueName": "C:\\Users\\samet\\source\\repos\\KütüphaneUygulaması\\KütüphaneUygulaması\\KutuphaneUygulamasi.csproj",
+      "projectName": "KutuphaneUygulamasi",
+      "projectPath": "C:\\Users\\samet\\source\\repos\\KütüphaneUygulaması\\KütüphaneUygulaması\\KutuphaneUygulamasi.csproj",
       "packagesPath": "C:\\Users\\samet\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\samet\\source\\repos\\KütüphaneUygulaması\\KütüphaneUygulaması\\obj\\",
       "projectStyle": "PackageReference",

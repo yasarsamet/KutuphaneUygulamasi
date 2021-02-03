@@ -1,13 +1,13 @@
 ﻿@model KütüphaneUygulaması.ViewModel.KitapAldiklarimViewModel
-@{ 
-   
+@{
+
 }
 <div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="modal fade" style="width:80px; height:80px;" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    
+
                 </div>
             </div>
         </div>
@@ -29,10 +29,10 @@
                     </thead>
                     <tbody>
                         @foreach (var odunc in Model.OduncAlListesi)
-                        {                            
+                        {
                             foreach (var kitap in Model.Kitaplistesi)
                             {
-                                if (odunc.KitabId == kitap.Id && odunc.OgrenciId == ViewBag.id )
+                                if (odunc.KitabId == kitap.Id && odunc.OgrenciId == ViewBag.id)
                                 {
                                     <tr>
                                         <td>@kitap.KitapAdi</td>
@@ -42,9 +42,9 @@
                                         <td>@odunc.TeslimTarihi</td>
                                         <td>
                                             <a data-toggle="modal" data-target="#Assign" style="color:white;" onclick="deleteCompany(@odunc.id)" class="btn btn-primary">
-                                                <span class="svg-icon svg-icon-md">                                                   
+                                                <span class="svg-icon svg-icon-md">
                                                 </span>Düzenle
-                                            </a>                                            
+                                            </a>
                                         </td>
                                     </tr>
                                 }
@@ -67,17 +67,17 @@
                  debugger;
                  //$('#hidden').val(data.id);
                 });
-    }    
-     function onayla() {        
+    }
+     function onayla() {
         var newdate = $("#sae").val();
-        //var oduncTar = odunctarihi       
+        //var oduncTar = odunctarihi
         debugger;
         $.get("@Url.Action("DüzenleOnayla", "KitapAl")",
             { newdatet: newdate, oduncId: oduncide},
                 function(data) {
                     location.reload();
                 });
-     }   
+     }
 </script>
 <div id="Assign" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -95,11 +95,11 @@
                         @{
                             DateTime now = DateTime.Now;
                             string formate = DateTime.Now.ToString("yyyy-MM-dd");
-                            string eklenmıs = DateTime.Now.AddDays(14).ToString("yyyy-MM-dd");                            
+                            string eklenmıs = DateTime.Now.AddDays(14).ToString("yyyy-MM-dd");
                         }
-                        <input id="sae" class="form-control" type="date" name="newdate"  min="@formate" max="@eklenmıs">                        
+                        <input id="sae" class="form-control" type="date" name="newdate" min="@formate" max="@eklenmıs">
                     </div>
-                </div>               
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>

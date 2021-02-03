@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfOdüncAlDal:EfEntityRepositoryBase<OduncAl, NorthwindContext>, IOduncAlDal
+    public class EfOduncAlDal:EfEntityRepositoryBase<OduncAl, NorthwindContext>, IOduncAlDal
     {
     }
 }

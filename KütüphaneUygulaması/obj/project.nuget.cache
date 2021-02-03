@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9YWAfa/5Tlss1F5uOg7uIV0aQPvgwQxHHKyQxpEHqIVMjU5zunfFDBiC0Bhc+Vp+yXc5fjEkIGYMtRNdLVm7Uw==",
+  "dgSpecHash": "UkrILZXro3m3zXcg3KfRLncg6Tb5fNP7Z98K+dSLj8qnMk6waQgyXM1XhSJREM3yl9PpT3uuRWlc2BsRFcXCiw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\samet\\source\\repos\\KütüphaneUygulaması\\KütüphaneUygulaması\\KütüphaneUygulaması.csproj",
+  "projectFilePath": "C:\\Users\\samet\\source\\repos\\KütüphaneUygulaması\\KütüphaneUygulaması\\KutuphaneUygulamasi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\samet\\.nuget\\packages\\autofac\\6.1.0\\autofac.6.1.0.nupkg.sha512",
     "C:\\Users\\samet\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.1.0\\autofac.extensions.dependencyinjection.7.1.0.nupkg.sha512",

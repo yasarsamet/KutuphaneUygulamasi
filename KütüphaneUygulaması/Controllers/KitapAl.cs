@@ -101,7 +101,7 @@ namespace KütüphaneUygulaması.Controllers
             return View(entity);
         }                        
         [HttpGet]
-        public IActionResult Kitaplarım()
+        public IActionResult Kitaplarim()
         {            
             ViewBag.id = Convert.ToInt32(HttpContext.Session.GetString("loginid"));
             var resultOduncAl = _iOduncAlservice.GetList();
@@ -148,10 +148,10 @@ namespace KütüphaneUygulaması.Controllers
                     model.Data.TeslimTarihi = newdatet;
                     _iOduncAlservice.Update(model.Data);
                 }
-                return RedirectToAction("Kitaplarım");
+                return RedirectToAction("Kitaplarim");
             }catch(Exception e)
             {
-                return RedirectToAction("Kitaplarım");
+                return RedirectToAction("Kitaplarim");
             }
         }
 

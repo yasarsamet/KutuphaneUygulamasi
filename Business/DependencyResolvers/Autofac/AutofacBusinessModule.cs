@@ -17,7 +17,7 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfOgrenciDal>().As<IOgrenciDal>();
 
             builder.RegisterType<OduncAlService>().As<IOduncAlService>();
-            builder.RegisterType<EfOdüncAlDal>().As<IOduncAlDal>();
+            builder.RegisterType<EfOduncAlDal>().As<IOduncAlDal>();
 
             builder.RegisterType<KitapService>().As<IKitaplarService>();
             builder.RegisterType<EfKitaplarDal>().As<IKitaplarDal>();

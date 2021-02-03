@@ -57,9 +57,9 @@
     </div>
 </div>
 <script>
-    var oduncıde = 0;
-    function deleteCompany(ide) {
-        oduncıde = ide
+    var oduncide = 0;
+    function deleteCompany(id) {
+        oduncide = id
         debugger;
          $.get("@Url.Action("Düzenle", "KitapAl")",
              { id: oduncıde},
@@ -73,7 +73,7 @@
         //var oduncTar = odunctarihi       
         debugger;
         $.get("@Url.Action("DüzenleOnayla", "KitapAl")",
-            { newdatet: newdate, oduncId: oduncıde},
+            { newdatet: newdate, oduncId: oduncide},
                 function(data) {
                     location.reload();
                 });

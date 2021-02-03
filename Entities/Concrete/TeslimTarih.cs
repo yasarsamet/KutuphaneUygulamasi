@@ -6,7 +6,7 @@ namespace Entities.Concrete
 {
     public class TeslimTarih
     {
-        public string KitapAdı { get; set; }
+        public string KitapAdi { get; set; }
         public string BarkodNo { get; set; }
         public int OgrenciId { get; set; }
         public string OduncTarihi { get; set; }

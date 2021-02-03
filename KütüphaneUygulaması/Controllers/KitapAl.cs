@@ -17,24 +17,24 @@ namespace KütüphaneUygulaması.Controllers
     [Authorize]
     public class KitapAl : Controller
     {
-        private readonly IOduncAlService _ıOduncAlservice = null;
-        private readonly IOgrenciService _ıOgrenciservice= null;
-        private readonly IKitaplarService _ıKitaplarservice = null;
-        private readonly IRafService _ıRafservice= null;
-        private readonly IYazarService _ıYazarservice= null;
-        private readonly IKitapYazarService _ıKitapYazarservice= null;
-        private readonly IRezervasyonService _ıRezervasyonservice = null;
+        private readonly IOduncAlService _iOduncAlservice = null;
+        private readonly IOgrenciService _iOgrenciservice= null;
+        private readonly IKitaplarService _iKitaplarservice = null;
+        private readonly IRafService _iRafservice= null;
+        private readonly IYazarService _iYazarservice= null;
+        private readonly IKitapYazarService _iKitapYazarservice= null;
+        private readonly IRezervasyonService _iRezervasyonservice = null;
         private readonly IMapper _mapper;
 
         public KitapAl(IOduncAlService Kitapalservice,IKitaplarService Kitabservice,IOgrenciService Ogrenciservice, IMapper mapper,IRafService Rafservice,IYazarService YazarService,IKitapYazarService KitapYazarservice,IRezervasyonService RezervasyonService)
         {
-            _ıKitapYazarservice = KitapYazarservice;
-            _ıOduncAlservice = Kitapalservice;
-            _ıYazarservice = YazarService;
-            _ıRezervasyonservice = RezervasyonService;
-            _ıKitaplarservice = Kitabservice;
-            _ıOgrenciservice = Ogrenciservice;
-           _ıRafservice = Rafservice;
+            _iKitapYazarservice = KitapYazarservice;
+            _iOduncAlservice = Kitapalservice;
+            _iYazarservice = YazarService;
+            _iRezervasyonservice = RezervasyonService;
+            _iKitaplarservice = Kitabservice;
+            _iOgrenciservice = Ogrenciservice;
+           _iRafservice = Rafservice;
             _mapper = mapper;
         }
         public IActionResult Istatistik()
@@ -42,26 +42,26 @@ namespace KütüphaneUygulaması.Controllers
             try
             {
                 IstatistikViewModel entity = new IstatistikViewModel();
-                int resultSayı = _ıOduncAlservice.Istatistik(Convert.ToInt32(HttpContext.Session.GetString("loginid")));
-                var resultToplamKitapSayisi = _ıKitaplarservice.GetList();
-                var TeslimEtmediğimKitaplar = _ıOduncAlservice.TeslimEtmedigimKitapSayısı(Convert.ToInt32(HttpContext.Session.GetString("loginid")));
+                int resultSayi = _iOduncAlservice.Istatistik(Convert.ToInt32(HttpContext.Session.GetString("loginid")));
+                var resultToplamKitapSayisi = _iKitaplarservice.GetList();
+                var TeslimEtmedigimKitaplar = _iOduncAlservice.TeslimEtmedigimKitapSayisi(Convert.ToInt32(HttpContext.Session.GetString("loginid")));
                 if (resultToplamKitapSayisi.Success)
                 {
-                    if (resultSayı==0)
+                    if (resultSayi==0)
                     {
                         entity.AldigimToplamKitapSayisi = 0;
                     }
                     else
                     {
-                        entity.AldigimToplamKitapSayisi = resultSayı;
+                        entity.AldigimToplamKitapSayisi = resultSayi;
                     }
-                    if (TeslimEtmediğimKitaplar ==0)
+                    if (TeslimEtmedigimKitaplar ==0)
                     {
                         entity.TeslimEtmedigimKitapSayisi = 0;
                     }
                     else
                     {
-                        entity.TeslimEtmedigimKitapSayisi = TeslimEtmediğimKitaplar;
+                        entity.TeslimEtmedigimKitapSayisi = TeslimEtmedigimKitaplar;
                     }
                     entity.ToplamKitapSayisi = resultToplamKitapSayisi.Data.Count();
                     return View(entity);
@@ -81,17 +81,17 @@ namespace KütüphaneUygulaması.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var resultRaf = _ıRafservice.GetList();
-            var resultOdüncAl = _ıOduncAlservice.GetList();
-            var resultKitap = _ıKitaplarservice.GetList();
-            var resultYazar = _ıYazarservice.GetList();
-            var resultRezervasyon = _ıRezervasyonservice.GetList();
-            var resultKitapYazar = _ıKitapYazarservice.GetList();                     
+            var resultRaf = _iRafservice.GetList();
+            var resultOduncAl = _iOduncAlservice.GetList();
+            var resultKitap = _iKitaplarservice.GetList();
+            var resultYazar = _iYazarservice.GetList();
+            var resultRezervasyon = _iRezervasyonservice.GetList();
+            var resultKitapYazar = _iKitapYazarservice.GetList();                     
             KitapListesiViewModel entity = new KitapListesiViewModel();         
             
             if (resultKitap.Success && resultYazar.Success && resultYazar.Success)
             {
-                entity.OdüncAlListesi = resultOdüncAl.Data;
+                entity.OduncAlListesi = resultOduncAl.Data;
                 entity.Yazarlistesi = resultYazar.Data;
                 entity.KitapYazarListesi = resultKitapYazar.Data;
                 entity.Kitaplistesi = resultKitap.Data;
@@ -104,15 +104,15 @@ namespace KütüphaneUygulaması.Controllers
         public IActionResult Kitaplarım()
         {            
             ViewBag.id = Convert.ToInt32(HttpContext.Session.GetString("loginid"));
-            var resultOdüncAl = _ıOduncAlservice.GetList();
-            var resultKitap = _ıKitaplarservice.GetList();
-            var resultYazar = _ıYazarservice.GetList();            
-            var resultKitapYazar = _ıKitapYazarservice.GetList();
-            if (resultOdüncAl.Success && resultKitap.Success && resultYazar.Success && resultKitapYazar.Success)
+            var resultOduncAl = _iOduncAlservice.GetList();
+            var resultKitap = _iKitaplarservice.GetList();
+            var resultYazar = _iYazarservice.GetList();            
+            var resultKitapYazar = _iKitapYazarservice.GetList();
+            if (resultOduncAl.Success && resultKitap.Success && resultYazar.Success && resultKitapYazar.Success)
             {
-                KitapAldıklarımViewModel entity = new KitapAldıklarımViewModel();
+                KitapAldiklarimViewModel entity = new KitapAldiklarimViewModel();
                 entity.Kitaplistesi = resultKitap.Data;
-                entity.OdüncAlListesi = resultOdüncAl.Data;
+                entity.OduncAlListesi = resultOduncAl.Data;
                 entity.Yazarlistesi = resultYazar.Data;
                 entity.KitapYazarListesi = resultKitapYazar.Data;               
                 return View(entity);
@@ -130,23 +130,23 @@ namespace KütüphaneUygulaması.Controllers
             entity.Tarih = DateTime.Now.ToString("yyyy-MM-dd");
             Rezervasyon entityrezervasyon = new Rezervasyon();
             entityrezervasyon = _mapper.Map<Rezervasyon>(entity);
-            _ıRezervasyonservice.Add(entityrezervasyon);
+            _iRezervasyonservice.Add(entityrezervasyon);
             return RedirectToAction("Index");
         }
         public JsonResult Düzenle(int id)
         {
-            var result = _ıOduncAlservice.GetById(id);
+            var result = _iOduncAlservice.GetById(id);
             return Json(result.Data);
         }
         public IActionResult DüzenleOnayla(string newdatet, int oduncId)
         {
             try
             {
-                var model = _ıOduncAlservice.GetById(oduncId);
+                var model = _iOduncAlservice.GetById(oduncId);
                 if (model.Success)
                 {
                     model.Data.TeslimTarihi = newdatet;
-                    _ıOduncAlservice.Update(model.Data);
+                    _iOduncAlservice.Update(model.Data);
                 }
                 return RedirectToAction("Kitaplarım");
             }catch(Exception e)
@@ -158,7 +158,7 @@ namespace KütüphaneUygulaması.Controllers
         //[ChildActionOnly]
         public IActionResult TeslimTarihiYaklasan()
         {
-            var result = _ıOduncAlservice.GetTeslimTarihi();
+            var result = _iOduncAlservice.GetTeslimTarihi();
             if (result.Success)
             {                
                 return PartialView("_TeslimPartialView",result.Data);
@@ -167,13 +167,13 @@ namespace KütüphaneUygulaması.Controllers
         }
         public JsonResult Raf(int id)
         {
-            var model = _ıRafservice.GetById(id);
+            var model = _iRafservice.GetById(id);
             return Json(model.Data);
         }      
         public IActionResult RezervasyonEttigimKitaplar()
         {
             int Id = Convert.ToInt32(HttpContext.Session.GetString("loginid"));
-            var result = _ıRezervasyonservice.GetById(Id);
+            var result = _iRezervasyonservice.GetById(Id);
             if (result!=null)
             {
                 RezervasyonEttigimKitaplarViewModel entity = new RezervasyonEttigimKitaplarViewModel();
@@ -187,7 +187,7 @@ namespace KütüphaneUygulaması.Controllers
         }
         public IActionResult RezervasyonSil(int rezervasyonid)
         {
-            _ıRezervasyonservice.Update(rezervasyonid);
+            _iRezervasyonservice.Update(rezervasyonid);
             return RedirectToAction("RezervasyonEttigimKitaplar");
         }
 

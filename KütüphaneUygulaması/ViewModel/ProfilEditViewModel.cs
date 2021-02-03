@@ -15,7 +15,7 @@ namespace KütüphaneUygulaması.ViewModel
         public string Email { get; set; }
         public string DogumTarihi { get; set; }
         public string Okulu { get; set; }
-        public string Sınıfı { get; set; }
+        public string Sinifi { get; set; }
         public string Durumu { get; set; }
         public string Adres { get; set; }
         public string Sifre { get; set; }

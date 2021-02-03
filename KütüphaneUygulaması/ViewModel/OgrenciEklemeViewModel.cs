@@ -30,8 +30,8 @@ namespace KütüphaneUygulaması.ViewModel
         [Required(ErrorMessage = "Okulunuzu Girin")]
         public string Okulu { get; set; }
 
-        [Required(ErrorMessage = "Sınıfınızı Girin")]
-        public string Sınıfı { get; set; }
+        [Required(ErrorMessage = "Sinifinızı Girin")]
+        public string Sinifi { get; set; }
 
         public string Durumu { get; set; }
 

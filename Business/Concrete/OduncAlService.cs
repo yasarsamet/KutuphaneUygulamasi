@@ -12,12 +12,12 @@ namespace Business.Concrete
 {
     public class OduncAlService : IOduncAlService
     {
-        private IOdüncAlDal _oduncal;
+        private IOduncAlDal _oduncal;
         private IKitaplarDal _kitapal;
 
-        public OduncAlService(IOdüncAlDal ödüncal, IKitaplarDal kitapal)
+        public OduncAlService(IOduncAlDal oduncal, IKitaplarDal kitapal)
         {
-            _oduncal = ödüncal;
+            _oduncal = oduncal;
             _kitapal = kitapal;
         }
 
@@ -52,7 +52,7 @@ namespace Business.Concrete
                         where i.Durumu == "Teslim Edilmedi"
                         select new TeslimTarih
                         {
-                            KitapAdı = y.KitapAdı,
+                            KitapAdi = y.KitapAdi,
                             BarkodNo = y.BarkodNo,
                             OduncTarihi = i.OduncTarihi,
                             OgrenciId = i.OgrenciId,
@@ -64,8 +64,8 @@ namespace Business.Concrete
         public int Istatistik(int id)
         {
             var result = _oduncal.GetList();
-            var sayı = result.Count(m => m.OgrenciId == id);
-            return sayı;
+            var sayi = result.Count(m => m.OgrenciId == id);
+            return sayi;
         }
 
         public IDataResult<OduncAl> KitapDurumu(int id)
@@ -73,7 +73,7 @@ namespace Business.Concrete
             return new SuccessDataResult<OduncAl>(_oduncal.Get(p => p.id == id));
         }
 
-        public int TeslimEtmedigimKitapSayısı(int id)
+        public int TeslimEtmedigimKitapSayisi(int id)
         {
             var result = _oduncal.GetList().Count(x => x.Durumu == "Teslim Etmedim" && x.id == id);
             return result;

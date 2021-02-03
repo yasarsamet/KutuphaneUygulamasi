@@ -11,8 +11,8 @@ namespace Entities.Concrete
         public int RafId { get; set; }
         public int YayineviId { get; set; }
         public int KitapId { get; set; }
-        public string KitapAdı { get; set; }
-        public string KitapSayfası { get; set; }
+        public string KitapAdi { get; set; }
+        public string KitapSayfasi { get; set; }
         public string KitapTürü { get; set; }
         public string BarkodNo { get; set; }        
     }

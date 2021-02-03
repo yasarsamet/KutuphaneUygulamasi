@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface IOdüncAlDal:IEntityRepository<OduncAl>
+    public interface IOduncAlDal:IEntityRepository<OduncAl>
     {
         
     }

@@ -19,7 +19,7 @@ namespace Business.Abstract
         int Istatistik(int id);
 
         IDataResult<List<TeslimTarih>> GetTeslimTarihi();
-        int TeslimEtmedigimKitapSayısı(int metin);
+        int TeslimEtmedigimKitapSayisi(int metin);
 
     }
 }

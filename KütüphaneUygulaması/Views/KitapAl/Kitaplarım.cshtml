@@ -1,4 +1,4 @@
-﻿@model KütüphaneUygulaması.ViewModel.KitapAldıklarımViewModel
+﻿@model KütüphaneUygulaması.ViewModel.KitapAldiklarimViewModel
 @{ 
    
 }
@@ -28,20 +28,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var ödünc in Model.OdüncAlListesi)
+                        @foreach (var odunc in Model.OduncAlListesi)
                         {                            
                             foreach (var kitap in Model.Kitaplistesi)
                             {
-                                if (ödünc.KitabId == kitap.Id && ödünc.OgrenciId == ViewBag.id )
+                                if (odunc.KitabId == kitap.Id && odunc.OgrenciId == ViewBag.id )
                                 {
                                     <tr>
-                                        <td>@kitap.KitapAdı</td>
-                                        <td>@kitap.KitapSayfası</td>
+                                        <td>@kitap.KitapAdi</td>
+                                        <td>@kitap.KitapSayfasi</td>
                                         <td>@kitap.KitapTürü</td>
-                                        <td>@ödünc.OduncTarihi</td>
-                                        <td>@ödünc.TeslimTarihi</td>
+                                        <td>@odunc.OduncTarihi</td>
+                                        <td>@odunc.TeslimTarihi</td>
                                         <td>
-                                            <a data-toggle="modal" data-target="#Assign" style="color:white;" onclick="deleteCompany(@ödünc.id)" class="btn btn-primary">
+                                            <a data-toggle="modal" data-target="#Assign" style="color:white;" onclick="deleteCompany(@odunc.id)" class="btn btn-primary">
                                                 <span class="svg-icon svg-icon-md">                                                   
                                                 </span>Düzenle
                                             </a>                                            

@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace KütüphaneUygulaması.ViewModel
 {
-    public class KitapAldıklarımViewModel
+    public class KitapAldiklarimViewModel
     {
 
-        public KitapAldıklarımViewModel()
+        public KitapAldiklarimViewModel()
         {
             Kitaplistesi = new List<Kitaplar>();
-            OdüncAlListesi = new List<OduncAl>();
+            OduncAlListesi = new List<OduncAl>();
             Yazarlistesi = new List<Yazar>();
             KitapYazarListesi = new List<KitapYazar>();            
         }
         public List<Kitaplar> Kitaplistesi { get; set; }
-        public List<OduncAl> OdüncAlListesi { get; set; }
+        public List<OduncAl> OduncAlListesi { get; set; }
         public List<Yazar> Yazarlistesi { get; set; }
         public List<KitapYazar> KitapYazarListesi { get; set; }
        

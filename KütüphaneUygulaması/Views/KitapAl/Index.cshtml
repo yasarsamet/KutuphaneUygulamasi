@@ -1,7 +1,7 @@
 ﻿@model KütüphaneUygulaması.ViewModel.KitapListesiViewModel
 @{
     List<int> OdüncKitapId = new List<int>();
-    foreach (var id in Model.OdüncAlListesi)
+    foreach (var id in Model.OduncAlListesi)
     {
         OdüncKitapId.Add(id.KitabId);
     }
@@ -40,14 +40,14 @@
                             if (OdüncKitapId.Contains(kitap.Id) == false && RezervasyonListesiId.Contains(kitap.Id) == false)
                             {
                                 <tr>
-                                    <td>@kitap.KitapAdı</td>
-                                    <td>@kitap.KitapSayfası</td>
+                                    <td>@kitap.KitapAdi</td>
+                                    <td>@kitap.KitapSayfasi</td>
                                     <td>@kitap.KitapTürü</td>
                                     @foreach (var kitapyazar in Model.KitapYazarListesi)
                                     {
                                         if (kitap.Id == kitapyazar.KitapId)
                                         {
-                                            <td>@kitapyazar.KitapBasımTarihi</td>
+                                            <td>@kitapyazar.KitapBasimTarihi</td>
                                         }
                                     }
                                     @foreach (var yazar in Model.Yazarlistesi)

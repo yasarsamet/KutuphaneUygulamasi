@@ -10,6 +10,6 @@ namespace Entities.Concrete
         public int Id { get; set; }
         public int KitapId { get; set; }
         public int YazarId { get; set; }
-        public string KitapBasımTarihi { get; set; }
+        public string KitapBasimTarihi { get; set; }
     }
 }

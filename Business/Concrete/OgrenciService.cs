@@ -14,41 +14,41 @@ namespace Business.Concrete
     public class OgrenciService : IOgrenciService
     {
 
-        private IOgrenciDal _ogrencıdal;
-        public OgrenciService(IOgrenciDal ogrencıdal)
+        private IOgrenciDal _ogrencidal;
+        public OgrenciService(IOgrenciDal ogrencidal)
         {
-            _ogrencıdal = ogrencıdal;
+            _ogrencidal = ogrencidal;
         }
         public IResult Add(Ogrenci ogrenci)
         {
             ogrenci.Sifre = BCrypt.Net.BCrypt.HashPassword(ogrenci.Sifre);            
-            _ogrencıdal.Add(ogrenci);
+            _ogrencidal.Add(ogrenci);
             return new SuccessResult(Messages.Added);
         }
         public IResult Delete(Ogrenci ogrenci)
         {
-            _ogrencıdal.Delete(ogrenci);
+            _ogrencidal.Delete(ogrenci);
             return new SuccessResult(Messages.Deleted);
         }
 
         public IDataResult<Ogrenci> EmailKontrol(string Email)
         {
-            return new SuccessDataResult<Ogrenci>(_ogrencıdal.Get(p=>p.Email == Email));
+            return new SuccessDataResult<Ogrenci>(_ogrencidal.Get(p=>p.Email == Email));
         }
 
         public IDataResult<Ogrenci> GetById(int id)
         {
 
-            return new SuccessDataResult<Ogrenci>(_ogrencıdal.Get(p => p.Id == id));
+            return new SuccessDataResult<Ogrenci>(_ogrencidal.Get(p => p.Id == id));
         }
         public IDataResult<List<Ogrenci>> GetList()
         {
-            return new SuccessDataResult<List<Ogrenci>>(_ogrencıdal.GetList().ToList());
+            return new SuccessDataResult<List<Ogrenci>>(_ogrencidal.GetList().ToList());
         }
 
         public IDataResult<Ogrenci> Login(string Email, string sifre)
         {
-            var result = _ogrencıdal.Get(m => m.Email == Email);
+            var result = _ogrencidal.Get(m => m.Email == Email);
             if (result !=null)
             {               
                 bool isValidPassword = BCrypt.Net.BCrypt.Verify(sifre, result.Sifre);
@@ -66,13 +66,13 @@ namespace Business.Concrete
             if (deger == 1)
             {
                 ogrenci.Sifre = BCrypt.Net.BCrypt.HashPassword(ogrenci.Sifre);
-                _ogrencıdal.Update(ogrenci);
+                _ogrencidal.Update(ogrenci);
                 return new SuccessResult(Messages.Updated);
             }
             else
             { 
                 // kendini doğrulama kısımı için
-                _ogrencıdal.Update(ogrenci);
+                _ogrencidal.Update(ogrenci);
                 return new SuccessResult(Messages.Updated);
             }
             

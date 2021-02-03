@@ -14,7 +14,7 @@ namespace KütüphaneUygulaması.ViewModel
             Kitaplistesi = new List<Kitaplar>();
             Yazarlistesi = new List<Yazar>();
             KitapYazarListesi = new List<KitapYazar>();
-            OdüncAlListesi = new List<OduncAl>();
+            OduncAlListesi = new List<OduncAl>();
             RafListesi = new List<Raf>();
             RezervasyonListesi = new List<Rezervasyon>();
         }
@@ -22,7 +22,7 @@ namespace KütüphaneUygulaması.ViewModel
 
         public List<Yazar> Yazarlistesi { get; set; }
         public List<KitapYazar> KitapYazarListesi { get; set; }
-        public List<OduncAl> OdüncAlListesi { get; set; }
+        public List<OduncAl> OduncAlListesi { get; set; }
         public List<Raf> RafListesi { get; set; }
         public List<Rezervasyon> RezervasyonListesi { get; set; }
     }

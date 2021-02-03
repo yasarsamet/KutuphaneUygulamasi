@@ -44,9 +44,9 @@ namespace Business.Concrete
                         {
                             Id=x.Id,
                             Adi = t.Adi,
-                            KitapSayfası = y.KitapSayfası,
-                            KitapAdı = y.KitapAdı,
-                            KitapBasımTarihi = z.KitapBasımTarihi,
+                            KitapSayfasi = y.KitapSayfasi,
+                            KitapAdi = y.KitapAdi,
+                            KitapBasimTarihi = z.KitapBasimTarihi,
                             Tarih = x.Tarih
                         };
             return new SuccessDataResult<List<RezervasyonEttiklerim>>(model.ToList());

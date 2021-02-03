@@ -13,36 +13,36 @@ namespace Business.Concrete
     public class RafService : IRafService
     {
 
-        private IRafDal _ırafdal;
-        public RafService(IRafDal ırafdal)
+        private IRafDal _irafdal;
+        public RafService(IRafDal rafdal)
         {
-            _ırafdal = ırafdal;
+            _irafdal = rafdal;
         }
         public IResult Add(Raf raf)
         {
-            _ırafdal.Add(raf);
+            _irafdal.Add(raf);
             return new SuccessResult(Messages.Added);
         }
 
         public IResult Delete(Raf raf)
         {
-            _ırafdal.Delete(raf);
+            _irafdal.Delete(raf);
             return new SuccessResult(Messages.Deleted);
         }
 
         public IDataResult<Raf> GetById(int id)
         {
-            return new SuccessDataResult<Raf>(_ırafdal.Get(p => p.Id == id));
+            return new SuccessDataResult<Raf>(_irafdal.Get(p => p.Id == id));
         }
 
         public IDataResult<List<Raf>> GetList()
         {
-            return new SuccessDataResult<List<Raf>>(_ırafdal.GetList().ToList());
+            return new SuccessDataResult<List<Raf>>(_irafdal.GetList().ToList());
         }
 
         public IResult Update(Raf Raf)
         {
-            _ırafdal.Update(Raf);
+            _irafdal.Update(Raf);
             return new SuccessResult(Messages.Updated);
         }
     }
